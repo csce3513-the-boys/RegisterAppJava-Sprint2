@@ -25,7 +25,7 @@ public class TransactionRouteController extends BaseRouteController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView showTransaction(final HttpServletRequest request)
 	{
-			ModelAndView modelAndView = new ModelAndView(ViewNames.PRODUCT_LISTING.getViewName());
+			ModelAndView modelAndView = new ModelAndView(ViewNames.TRANSACTION.getViewName());
 
 			final Optional<ActiveUserEntity> activeUserEntity = this.getCurrentUser(request);
 			if(!activeUserEntity.isPresent())

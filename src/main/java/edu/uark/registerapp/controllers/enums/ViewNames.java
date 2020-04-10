@@ -5,8 +5,10 @@ public enum ViewNames {
 	MAIN_MENU("mainMenu"),
 	PRODUCT_DETAIL("productDetail"),
 	EMPLOYEE_DETAIL("employeeDetail"),
-	PRODUCT_LISTING("productListing");
-	
+	PRODUCT_LISTING("productListing"),
+	TRANSACTION("transaction"),
+	TRANSACTION_SUMMARY("transactionSummary");
+
 	public String getRoute() {
 		return this.route;
 	}

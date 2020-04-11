@@ -53,13 +53,13 @@ public class ProductEntity {
 	}
 
     @Column(name="price")
-    private double price;
+    private long price;
 
-	  public double getPrice() {
+	  public long getPrice() {
 		return this.price;
 	}
 
-	public ProductEntity setPrice(final double price) {
+	public ProductEntity setPrice(final long price) {
 		this.price = price;
 		return this;
 	}
@@ -97,7 +97,7 @@ public class ProductEntity {
 	}
 
 	public ProductEntity(final Product apiProduct) {
-		this.price = 0.00; // TODO: Add price to Product.java and allow for edits via the productDetail view
+		this.price = 0L; // TODO: Add price to Product.java and allow for edits via the productDetail view
 		this.id = new UUID(0, 0);
 		this.count = apiProduct.getCount();
 		this.lookupCode = apiProduct.getLookupCode();

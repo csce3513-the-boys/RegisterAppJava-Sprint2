@@ -77,7 +77,7 @@ public class Product extends ApiResponse {
 		this.lookupCode = StringUtils.EMPTY;
 
 		this.setCreatedOn(LocalDateTime.now());
-		this.price = 0.00;
+		this.price = 0L;
 	}
 
 	public Product(final ProductEntity productEntity) {

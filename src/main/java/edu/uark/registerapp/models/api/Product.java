@@ -58,6 +58,17 @@ public class Product extends ApiResponse {
 		return this;
 	}
 
+	private double price;
+
+	public double getPrice(){
+		return this.price;
+	}
+
+	public Product setPrice(final double price){
+		this.price = price;
+		return this;
+	}
+
 	public Product() {
 		super();
 
@@ -66,6 +77,7 @@ public class Product extends ApiResponse {
 		this.lookupCode = StringUtils.EMPTY;
 
 		this.setCreatedOn(LocalDateTime.now());
+		this.price = 0.00;
 	}
 
 	public Product(final ProductEntity productEntity) {
@@ -76,5 +88,6 @@ public class Product extends ApiResponse {
 		this.lookupCode = productEntity.getLookupCode();
 
 		this.setCreatedOn(productEntity.getCreatedOn());
+		this.price = productEntity.getPrice();
 	}
 }

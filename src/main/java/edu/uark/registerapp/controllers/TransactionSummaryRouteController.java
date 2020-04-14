@@ -45,9 +45,12 @@ public class TransactionSummaryRouteController extends BaseRouteController {
         //      show cost of items
         //      allow for check out
 
+        System.out.println("Before Try");
         try
         {
+            System.out.println("Made it to Try");
             this.transactionQuery.execute();
+            System.out.println("Made it to after Try");
         }
         catch(Exception e)
         {

@@ -1,15 +1,37 @@
-// Getters and setters
-function getSubmitActionElement() {
-	return document.getElementById("productSearch");
+//getters and setters
+
+document.addEventListener("DOMContentLoaded", function(event)
+{
+	var formFull = true;
+	document.getElementById("submitButton").addEventListener("click", checkForm);
+});
+
+function checkForm()
+{
+	var lookupCode = document.forms["productLookupForm"]["lookupInput"].value;
+	if(lookupCode == "")
+	{
+		document.getElementById("formError").innerHTML = "Lookup code field is empty";
+		formFull = false;
+		return false
+	}
+
+	document.getElementById("formError").innerHTML = "";
+	formFull = true;
+	return true;
 }
 
-function getAddActionElement() {
-	return document.getElementById("addButton");
+function getLookupCode()
+{
+	return getProductLookupCodeElement().nodeValue;
 }
 
-function getSearchElement() {
-	return document.getElementById("search");
+function getLookupCodeElement()
+{
+	return document.getElementById("lookupInput");
 }
 
-//ADD price getters
-// End getters and setters
+function setLookupCodeElement(lookupCode)
+{
+	getLookupCodeElement().value = lookupCode;
+}

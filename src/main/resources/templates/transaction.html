@@ -13,8 +13,8 @@
 <body>
 	<div class="header">
 		<h1 class="primary-message">Transaction</h1>
-    <input type="text" placeholder="Search.." name="search">
-      <button id = "productSearch" type="submit" class = "action">Submit</button>
+    <!--<input type="text" placeholder="Search.." name="search">
+      <button id = "productSearch" type="submit" class = "action">Submit</button>-->
 	</div>
 
 	<div id="main" class="main">
@@ -22,14 +22,34 @@
 			<h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
 		</div>
 
-		<ul id="productsListing" class="products">
+		<!--<ul id="productsListing" class="products">
 			<li th:each="product : ${products}">
 				<input type="hidden" name="productId" th:value="${product.id}" />
 				<span class="productLookupCodeDisplay" th:text="${product.lookupCode}">lookupCode</span>
 				<br />&nbsp;&nbsp;<span class="productCountDisplay" th:text="${product.count}">0</span>
 				<br />&nbsp;&nbsp;<span class="productCreatedOnDisplay" th:text="${product.createdOn}">12/31/1999</span>
 			</li>
-		</ul>
+		</ul>-->
+		<div id = "productLookup">
+			<form name="productLookupForm" onsubmit="return validateForm()" method="GET">
+			Lookup Code: <input type="text" name="lookupInput" id="lookupInput">
+			<input type="submit" value="Submit" id="submitButton">
+			<p id="formError"></p>
+			</form>
+		</div>
+
+		<div id="products">
+			<table id="productTable">
+				<tr>
+					<th>Product</th>
+					<th>Price</th>
+				</tr>
+				<tr id="firstInput"></tr>>
+					<td id="firstProduct"></td>
+					<td id="firstProductPrice"></td>
+				</tr>
+			</table>
+		</div>
 
 		<div class="transactionActionWrapper">
 				<a href="/transactionSummary/" class="button">Finish Transaction</a>

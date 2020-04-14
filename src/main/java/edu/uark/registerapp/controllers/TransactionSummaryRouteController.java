@@ -51,6 +51,7 @@ public class TransactionSummaryRouteController extends BaseRouteController {
         }
         catch(Exception e)
         {
+            System.out.println("Made it to Catch");
             Transaction apiTransaction = new Transaction();
             apiTransaction.setCashierId(activeUserEntity.get().getEmployeeId());
             apiTransaction.setTotal(0);

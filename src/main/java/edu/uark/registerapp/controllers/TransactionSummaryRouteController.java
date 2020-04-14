@@ -45,6 +45,20 @@ public class TransactionSummaryRouteController extends BaseRouteController {
         //      show cost of items
         //      allow for check out
 
+        try
+        {
+            this.transactionQuery.execute();
+        }
+        catch(Exception e)
+        {
+            Transaction apiTransaction = new Transaction();
+            apiTransaction.setCashierId(activeUserEntity.get().getEmployeeId());
+            apiTransaction.setTotal(0);
+            apiTransaction.setType(0);
+            this.TransactionAddCommand.setApiTransaction(apiTransaction);
+            this.TransactionAddCommand.execute();
+        }
+
         return modelAndView;
     }
 

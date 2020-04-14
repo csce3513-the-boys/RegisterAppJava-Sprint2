@@ -12,6 +12,7 @@ import edu.uark.registerapp.models.api.Transaction;
 import edu.uark.registerapp.models.entities.TransactionEntity;
 import edu.uark.registerapp.models.repositories.TransactionRepository;
 
+@Service
 public class TransactionQuery implements ResultCommandInterface<Transaction>{
     @Override
     public Transaction execute()

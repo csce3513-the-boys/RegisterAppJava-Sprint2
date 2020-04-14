@@ -22,18 +22,14 @@
 			<h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
 		</div>
 
-    <ul id="productsListing" class="products">
-      <li th:each="product : ${products}">
-        <input type="hidden" name="productId" th:value="${product.id}" />
-        <span class="productLookupCodeDisplay" th:text="${product.lookupCode}">lookupCode</span>
-        <br />&nbsp;&nbsp;<span class="productCountDisplay" th:text="${product.count}">0</span>
-        <br />&nbsp;&nbsp;<span class="productCreatedOnDisplay" th:text="${product.createdOn}">12/31/1999</span>
-				<br />
-				<input type="number" id="quantity" name="quantity" min="1" max="5">
-				<button id="addButton" type="button" class="action">Add</button>
-
-      </li>
-    </ul>
+		<ul id="productsListing" class="products">
+			<li th:each="product : ${products}">
+				<input type="hidden" name="productId" th:value="${product.id}" />
+				<span class="productLookupCodeDisplay" th:text="${product.lookupCode}">lookupCode</span>
+				<br />&nbsp;&nbsp;<span class="productCountDisplay" th:text="${product.count}">0</span>
+				<br />&nbsp;&nbsp;<span class="productCreatedOnDisplay" th:text="${product.createdOn}">12/31/1999</span>
+			</li>
+		</ul>
 
 		<div class="transactionActionWrapper">
 				<a href="/transactionSummary/" class="button">Finish Transaction</a>

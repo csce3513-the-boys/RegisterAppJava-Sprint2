@@ -45,7 +45,7 @@ public class TransactionSummaryRouteController extends BaseRouteController {
         //      show cost of items
         //      allow for check out
 
-
+        return modelAndView;
     }
 
     //Properties

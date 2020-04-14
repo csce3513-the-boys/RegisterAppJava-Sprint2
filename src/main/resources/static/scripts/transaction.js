@@ -6,29 +6,18 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 });
 
-function findClickedListItemElement(clickedTarget) {
-	if (clickedTarget.tagName.toLowerCase() === "li") {
-		return clickedTarget;
-	} else {
-		let ancestorIsListItem = false;
-		let ancestorElement = clickedTarget.parentElement;
-
-		while (!ancestorIsListItem && (ancestorElement != null)) {
-			ancestorIsListItem = (ancestorElement.tagName.toLowerCase() === "li");
-
-			if (!ancestorIsListItem) {
-				ancestorElement = ancestorElement.parentElement;
-			}
-		}
-
-		return (ancestorIsListItem ? ancestorElement : null);
-	}
+// Getters and setters
+function getSubmitActionElement() {
+	return document.getElementById("productSearch");
 }
 
-function productClick(event) {
-	let listItem = findClickedListItemElement(event.target);
-
-	window.location.assign(
-		"/productDetail/"
-		+ listItem.querySelector("input[name='productId'][type='hidden']").value);
+function getAddActionElement() {
+	return document.getElementById("addButton");
 }
+
+function getSearchElement() {
+	return document.getElementById("search");
+}
+
+//ADD price getters
+// End getters and setters

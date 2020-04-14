@@ -45,6 +45,8 @@ public class TransactionSummaryRouteController extends BaseRouteController {
         //      show cost of items
         //      allow for check out
 
+        modelAndView.addObject("Empty Cart", true);
+
         return modelAndView;
     }
 

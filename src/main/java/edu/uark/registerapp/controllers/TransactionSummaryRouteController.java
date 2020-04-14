@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import edu.uark.registerapp.commands.transactions.TransactionQuery;
+import edu.uark.registerapp.commands.transactions.TransactionAddCommand;
+import edu.uark.registerapp.commands.transactions.TransactionRemoveCommand;
+
 import edu.uark.registerapp.commands.products.ProductsQuery;
 import edu.uark.registerapp.controllers.enums.ViewModelNames;
 import edu.uark.registerapp.controllers.enums.ViewNames;
@@ -33,6 +37,8 @@ public class TransactionSummaryRouteController extends BaseRouteController {
         {
             return buildInvalidSessionResponse();
         }
+
+        
 
         //TODO: Check if items are in cart
         //      if true, show items

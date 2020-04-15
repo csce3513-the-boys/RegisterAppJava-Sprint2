@@ -12,12 +12,13 @@ import edu.uark.registerapp.models.api.Transaction;
 import edu.uark.registerapp.models.entities.TransactionEntity;
 import edu.uark.registerapp.models.repositories.TransactionRepository;
 
+@Service
 public class TransactionQuery implements ResultCommandInterface<Transaction>{
     @Override
     public Transaction execute()
     {
         final Optional<TransactionEntity> transactionEntity =
-            this.transactionRepository.findById(this.transactionId);
+            this.transactionRepository.findByCashierId(this.cashierId);
         if(transactionEntity.isPresent())
         {
             return new Transaction(transactionEntity.get());
@@ -29,14 +30,14 @@ public class TransactionQuery implements ResultCommandInterface<Transaction>{
     }
 
     //Properties
-    private UUID transactionId;
-    public UUID getTransactionId()
+    private UUID cashierId;
+    public UUID getCashierId()
     {
-        return this.transactionId;
+        return this.cashierId;
     }
-    public TransactionQuery setTransactionId(final UUID transactionId)
+    public TransactionQuery setCashierId(final UUID cashierId)
     {
-        this.transactionId = transactionId;
+        this.cashierId = cashierId;
         return this;
     }
 

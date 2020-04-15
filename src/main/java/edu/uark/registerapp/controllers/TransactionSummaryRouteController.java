@@ -15,8 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 import edu.uark.registerapp.commands.transactions.TransactionQuery;
 import edu.uark.registerapp.commands.transactions.TransactionAddCommand;
 import edu.uark.registerapp.commands.transactions.TransactionRemoveCommand;
+import edu.uark.registerapp.models.api.Transaction;
 
-import edu.uark.registerapp.commands.products.ProductsQuery;
+import edu.uark.registerapp.commands.products.ProductQuery;
 import edu.uark.registerapp.controllers.enums.ViewModelNames;
 import edu.uark.registerapp.controllers.enums.ViewNames;
 import edu.uark.registerapp.models.api.Product;
@@ -38,15 +39,20 @@ public class TransactionSummaryRouteController extends BaseRouteController {
             return buildInvalidSessionResponse();
         }
 
-        
-
         //TODO: Check if items are in cart
         //      if true, show items
         //      if false, show empty cart
         //      show cost of items
         //      allow for check out
 
+        modelAndView.addObject("Empty Cart", true);
+
         return modelAndView;
     }
 
+    //Properties
+    @Autowired
+    private TransactionQuery transactionQuery;
+    private TransactionAddCommand TransactionAddCommand;
+    private ProductQuery productQuery;
 }

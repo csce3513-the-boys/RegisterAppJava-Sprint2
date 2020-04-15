@@ -1,34 +1,40 @@
-document.addEventListener("DOMContentLoaded", () => {
-	const productListElements = document.getElementById("productsListing").children;
 
-	for (let i = 0; i < productListElements.length; i++) {
-		productListElements[i].addEventListener("click", productClick);
-	}
+//getters and setters
+
+document.addEventListener("DOMContentLoaded", function(event)
+{
+	var formFull = true;
+	document.getElementById("submitButton").addEventListener("click", checkForm());
 });
 
-function findClickedListItemElement(clickedTarget) {
-	if (clickedTarget.tagName.toLowerCase() === "li") {
-		return clickedTarget;
-	} else {
-		let ancestorIsListItem = false;
-		let ancestorElement = clickedTarget.parentElement;
-
-		while (!ancestorIsListItem && (ancestorElement != null)) {
-			ancestorIsListItem = (ancestorElement.tagName.toLowerCase() === "li");
-
-			if (!ancestorIsListItem) {
-				ancestorElement = ancestorElement.parentElement;
-			}
-		}
-
-		return (ancestorIsListItem ? ancestorElement : null);
+function checkForm()
+{
+	
+	var lookupCode = document.getElementById("lookupInput");
+	console.log(lookupCode);
+	if(lookupCode == "")
+	{
+		document.getElementById("formError").innerHTML = "Lookup code field is empty";
+		formFull = false;
+		return false
 	}
+
+	document.getElementById("formError").innerHTML = "hey it kinda works";
+	formFull = true;
+	return true;
 }
 
-function productClick(event) {
-	let listItem = findClickedListItemElement(event.target);
+function getLookupCode()
+{
+	return getProductLookupCodeElement().nodeValue;
+}
 
-	window.location.assign(
-		"/productDetail/"
-		+ listItem.querySelector("input[name='productId'][type='hidden']").value);
+function getLookupCodeElement()
+{
+	return document.getElementById("lookupInput");
+}
+
+function setLookupCodeElement(lookupCode)
+{
+	getLookupCodeElement().value = lookupCode;
 }

@@ -5,7 +5,7 @@
 document.addEventListener("DOMContentLoaded", function(event)
 {
 	var formFull = true;
-	document.getElementById("submitButton").addEventListener("click", checkForm());
+	document.getElementById("submitButton").addEventListener("click", checkForm);
 });
 
 function checkForm()

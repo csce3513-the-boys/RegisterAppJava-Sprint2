@@ -17,6 +17,8 @@ import edu.uark.registerapp.commands.transactions.TransactionAddCommand;
 import edu.uark.registerapp.commands.transactions.TransactionRemoveCommand;
 import edu.uark.registerapp.models.api.Transaction;
 
+import edu.uark.registerapp.commands.products.ProductsQuery;
+
 import edu.uark.registerapp.commands.products.ProductQuery;
 import edu.uark.registerapp.controllers.enums.ViewModelNames;
 import edu.uark.registerapp.controllers.enums.ViewNames;
@@ -45,7 +47,18 @@ public class TransactionSummaryRouteController extends BaseRouteController {
         //      show cost of items
         //      allow for check out
 
-        modelAndView.addObject("Empty Cart", true);
+        try {
+			modelAndView.addObject(
+				ViewModelNames.PRODUCT.getValue(),
+				this.productQuery.execute());
+		} catch (final Exception e) {
+			modelAndView.addObject(
+				ViewModelNames.ERROR_MESSAGE.getValue(),
+				e.getMessage());
+			modelAndView.addObject(
+				ViewModelNames.PRODUCT.getValue(),
+				(new Product[0]));
+		}
 
         return modelAndView;
     }

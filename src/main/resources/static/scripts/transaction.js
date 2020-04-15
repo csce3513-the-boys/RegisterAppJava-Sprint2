@@ -22,7 +22,7 @@ function checkForm()
 	document.getElementById("formError").innerHTML = "hey it kinda works";
 	formFull = true;
 	return true;
-
+}
 
 function getLookupCode()
 {

@@ -49,14 +49,14 @@ public class TransactionSummaryRouteController extends BaseRouteController {
 
         try {
 			modelAndView.addObject(
-				ViewModelNames.PRODUCTS.getValue(),
-				this.productsQuery.execute());
+				ViewModelNames.PRODUCT.getValue(),
+				this.productQuery.execute());
 		} catch (final Exception e) {
 			modelAndView.addObject(
 				ViewModelNames.ERROR_MESSAGE.getValue(),
 				e.getMessage());
 			modelAndView.addObject(
-				ViewModelNames.PRODUCTS.getValue(),
+				ViewModelNames.PRODUCT.getValue(),
 				(new Product[0]));
 		}
 
@@ -67,5 +67,5 @@ public class TransactionSummaryRouteController extends BaseRouteController {
     @Autowired
     private TransactionQuery transactionQuery;
     private TransactionAddCommand TransactionAddCommand;
-    private ProductsQuery productsQuery;
+    private ProductQuery productQuery;
 }

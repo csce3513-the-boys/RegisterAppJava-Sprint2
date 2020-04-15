@@ -1,7 +1,7 @@
 
 //getters and setters
 
-<<<<<<< HEAD
+
 document.addEventListener("DOMContentLoaded", function(event)
 {
 	var formFull = true;
@@ -39,20 +39,5 @@ function setLookupCodeElement(lookupCode)
 {
 	getLookupCodeElement().value = lookupCode;
 }
-=======
-// Getters and setters
-function getSubmitActionElement() {
-	return document.getElementById("productSearch");
-}
 
-function getAddActionElement() {
-	return document.getElementById("addButton");
-}
 
-function getSearchElement() {
-	return document.getElementById("search");
-}
-
-//ADD price getters
-// End getters and setters
->>>>>>> 52ade7f59b5ecad2fc0a6262ae3390525fc91e96

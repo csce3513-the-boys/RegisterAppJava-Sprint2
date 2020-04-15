@@ -4,30 +4,39 @@
 
 document.addEventListener("DOMContentLoaded", function(event)
 {
-	var formFull = true;
-	document.getElementById("submitButton").addEventListener("click", checkForm);
+	var formFull = false;
+	document.getElementById("submitButton").addEventListener("click", saveActionClick);
 });
+
+function saveActionClick(event)
+{
+	if(!checkForm())
+	{
+		return;
+	}
+	else
+	{
+		displayError("This is probably not gonna work");
+	}
+}
 
 function checkForm()
 {
 	
-	var lookupCode = document.getElementById("lookupInput");
+	const lookupCode = getLookupCode();
 	console.log(lookupCode);
-	if(lookupCode == "")
+	if(lookupCode == null || (lookupCode.trim() == ""))
 	{
-		document.getElementById("formError").innerHTML = "Lookup code field is empty";
-		formFull = false;
+		displayError("please provide valid lookup code");
 		return false
 	}
 
-	document.getElementById("formError").innerHTML = "hey it kinda works";
-	formFull = true;
 	return true;
 }
 
 function getLookupCode()
 {
-	return getProductLookupCodeElement().nodeValue;
+	return getProductLookupCodeElement().value;
 }
 
 function getLookupCodeElement()

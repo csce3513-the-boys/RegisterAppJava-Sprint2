@@ -47,19 +47,6 @@ public class TransactionSummaryRouteController extends BaseRouteController {
         //      show cost of items
         //      allow for check out
 
-        try {
-			modelAndView.addObject(
-				ViewModelNames.PRODUCT.getValue(),
-				this.productQuery.execute());
-		} catch (final Exception e) {
-			modelAndView.addObject(
-				ViewModelNames.ERROR_MESSAGE.getValue(),
-				e.getMessage());
-			modelAndView.addObject(
-				ViewModelNames.PRODUCT.getValue(),
-				(new Product[0]));
-		}
-
         return modelAndView;
     }
 

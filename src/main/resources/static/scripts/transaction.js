@@ -3,12 +3,14 @@
 document.addEventListener("DOMContentLoaded", function(event)
 {
 	var formFull = true;
-	document.getElementById("submitButton").addEventListener("click", checkForm);
+	document.getElementById("submitButton").addEventListener("click", checkForm());
 });
 
 function checkForm()
 {
-	var lookupCode = document.forms["productLookupForm"]["lookupInput"].value;
+	
+	var lookupCode = document.getElementById("lookupInput");
+	console.log(lookupCode);
 	if(lookupCode == "")
 	{
 		document.getElementById("formError").innerHTML = "Lookup code field is empty";
@@ -16,7 +18,7 @@ function checkForm()
 		return false
 	}
 
-	document.getElementById("formError").innerHTML = "";
+	document.getElementById("formError").innerHTML = "hey it kinda works";
 	formFull = true;
 	return true;
 }

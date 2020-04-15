@@ -13,13 +13,10 @@
 <body>
 	<div class="header">
 		<h1 class="primary-message">Transaction</h1>
-<<<<<<< HEAD
+
     <!--<input type="text" placeholder="Search.." name="search">
       <button id = "productSearch" type="submit" class = "action">Submit</button>-->
-=======
-    <input type="text" placeholder="Search.." name="search">
-      <button id = "productSearch" type="submit" class = "action">Submit</button>
->>>>>>> 52ade7f59b5ecad2fc0a6262ae3390525fc91e96
+
 	</div>
 
 	<div id="main" class="main">
@@ -27,11 +24,9 @@
 			<h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
 		</div>
 
-<<<<<<< HEAD
+
 		<!--<ul id="productsListing" class="products">
-=======
-		<ul id="productsListing" class="products">
->>>>>>> 52ade7f59b5ecad2fc0a6262ae3390525fc91e96
+
 			<li th:each="product : ${products}">
 				<input type="hidden" name="productId" th:value="${product.id}" />
 				<span class="productLookupCodeDisplay" th:text="${product.lookupCode}">lookupCode</span>
@@ -60,9 +55,7 @@
 				</tr>
 			</table>
 		
-=======
-		</ul>
->>>>>>> 52ade7f59b5ecad2fc0a6262ae3390525fc91e96
+
 
 		<div class="transactionActionWrapper">
 				<a href="/transactionSummary/" class="button">Finish Transaction</a>

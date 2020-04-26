@@ -8,13 +8,6 @@ document.addEventListener("DOMContentLoaded", function(event)
 	document.getElementById("submitButton").addEventListener("click", saveActionClick);
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-	const productListElements = document.getElementById("productsListing").children;
-
-	for (let i = 0; i < productListElements.length; i++) {
-		productListElements[i].addEventListener("click", productClick);
-	}
-});
 
 function saveActionClick(event)
 {

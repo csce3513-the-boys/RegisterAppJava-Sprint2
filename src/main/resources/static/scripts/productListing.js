@@ -29,7 +29,7 @@ function productClick(event) {
 	let listItem = findClickedListItemElement(event.target);
 
 	console.log("CLICK");
-	window.location.assign(
-		"/productDetail/"
-		+ listItem.querySelector("input[name='productId'][type='hidden']").value);
+	// window.location.assign(
+	// 	"/productDetail/"
+	// 	+ listItem.querySelector("input[name='productId'][type='hidden']").value);
 }

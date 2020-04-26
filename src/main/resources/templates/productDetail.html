@@ -46,7 +46,7 @@
 					<tr>
 						<td class="label">Price:</td>
 						<td>
-							<input id="productPrice" type="number" th:value="${!product.isEmpty} ? ${product.price} : ''" class="update" th:disabled="${!isElevated}" />
+							<input id="productPrice" type="number" th:value="${!product.isEmpty} ? ${product.price} : ''" class="update" th:disabled="${!isElevatedUser}" />
 						</td>
 					</tr>
 				</tbody>

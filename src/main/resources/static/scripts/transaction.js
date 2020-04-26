@@ -50,4 +50,17 @@ function setLookupCodeElement(lookupCode)
 	getLookupCodeElement().value = lookupCode;
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+	const productListElements = document.getElementById("productsListing").children;
+
+	for (let i = 0; i < productListElements.length; i++) {
+		productListElements[i].addEventListener("click", productClick);
+	}
+});
+
+function productClick(event) {
+	let listItem = findClickedListItemElement(event.target);
+
+	console.log("CLICK");
+}
 

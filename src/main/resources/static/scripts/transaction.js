@@ -84,6 +84,6 @@ function findClickedListItemElement(clickedTarget) {
 function productClick(event) {
 	let listItem = findClickedListItemElement(event.target);
 
-	Console.log(1);
+	console.log(1);
 }
 

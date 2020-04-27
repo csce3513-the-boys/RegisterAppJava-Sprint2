@@ -45,17 +45,27 @@ public class TransactionRouteController extends BaseRouteController {
 				new ModelAndView(ViewNames.TRANSACTION.getViewName()),
 				queryParameters);
 
-		modelAndView.addObject(
-			ViewModelNames.IS_ELEVATED_USER.getValue(),
-			this.isElevatedUser(activeUserEntity.get()));
-
-		String lookupInput = "Before Get";
+//This is my attempt at trying to get the lookupinput from the url. 
+//I cant tell if this works or not and cant find a way to check.
+		String lookupInput = "Before Get"; 
 		lookupInput = request.getParameter("lookupInput");
 		//lookupInput = request.getAttribute("lookupInput");
 		modelAndView.addObject("Search", lookupInput);
 		
+//This is my attempt at a partial search
+//The idea was to have the GET request and compare it to the lookupIds of the products
+//If it partially matches it goes on the modelAndView.
+//IF it doesnt it wont show up
+//Heroku throws a whitepage error and wont specify what the problem is so I dont know where to start
+//If you take the try catch out of the if-else statement all of the products will show up on the page.
+//The code for when this was working is saved on Coles computer.
+
 		if(ViewModelNames.PRODUCTS.getValue().contains(lookupInput))
 		{
+			modelAndView.addObject(
+			ViewModelNames.IS_ELEVATED_USER.getValue(),
+			this.isElevatedUser(activeUserEntity.get()));
+
 			try {
 				modelAndView.addObject(
 					ViewModelNames.PRODUCTS.getValue(),

@@ -4,12 +4,14 @@ import java.util.Map;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.uark.registerapp.commands.products.ProductsQuery;
@@ -20,6 +22,7 @@ import edu.uark.registerapp.models.entities.ActiveUserEntity;
 import edu.uark.registerapp.models.enums.EmployeeClassification;
 
 //import edu.uark.registerapp.models.LookupServlet;
+import java.io.IOException;
 import java.io.PrintWriter;
 
 @Controller
@@ -47,10 +50,11 @@ public class TransactionRouteController extends BaseRouteController {
 			this.isElevatedUser(activeUserEntity.get()));
 
 		String lookupInput = "Before Get";
+		System.out.println("Search: " + lookupInput);
 		lookupInput = request.getParameter("lookupInput");
 		//lookupInput = request.getHeaders("lookupInput");
 		modelAndView.addObject("Search", lookupInput);
-
+		System.out.println("Search: " + lookupInput);
 		try {
 			modelAndView.addObject(
 				ViewModelNames.PRODUCTS.getValue(),

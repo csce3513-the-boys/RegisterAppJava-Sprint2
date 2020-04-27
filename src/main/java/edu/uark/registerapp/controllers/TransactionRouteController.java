@@ -50,23 +50,24 @@ public class TransactionRouteController extends BaseRouteController {
 			this.isElevatedUser(activeUserEntity.get()));
 
 		String lookupInput = "Before Get";
-		System.out.println("Search: " + lookupInput);
 		lookupInput = request.getParameter("lookupInput");
 		//lookupInput = request.getAttribute("lookupInput");
 		modelAndView.addObject("Search", lookupInput);
-		System.out.println("Search: " + lookupInput);
-
-		try {
-			modelAndView.addObject(
-				ViewModelNames.PRODUCTS.getValue(),
-				this.productsQuery.execute());
-		} catch (final Exception e) {
-			modelAndView.addObject(
-				ViewModelNames.ERROR_MESSAGE.getValue(),
-				e.getMessage());
-			modelAndView.addObject(
-				ViewModelNames.PRODUCTS.getValue(),
-				(new Product[0]));
+		
+		if(ViewModelNames.PRODUCTS.getValue().contains(lookupInput))
+		{
+			try {
+				modelAndView.addObject(
+					ViewModelNames.PRODUCTS.getValue(),
+					this.productsQuery.execute());
+			} catch (final Exception e) {
+				modelAndView.addObject(
+					ViewModelNames.ERROR_MESSAGE.getValue(),
+					e.getMessage());
+				modelAndView.addObject(
+					ViewModelNames.PRODUCTS.getValue(),
+					(new Product[0]));
+			}
 		}
 		
 		return modelAndView;

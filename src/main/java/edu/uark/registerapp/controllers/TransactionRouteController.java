@@ -19,6 +19,9 @@ import edu.uark.registerapp.models.api.Product;
 import edu.uark.registerapp.models.entities.ActiveUserEntity;
 import edu.uark.registerapp.models.enums.EmployeeClassification;
 
+//import edu.uark.registerapp.models.LookupServlet;
+import java.io.PrintWriter;
+
 @Controller
 @RequestMapping(value = "/transaction")
 public class TransactionRouteController extends BaseRouteController {
@@ -42,6 +45,9 @@ public class TransactionRouteController extends BaseRouteController {
 		modelAndView.addObject(
 			ViewModelNames.IS_ELEVATED_USER.getValue(),
 			this.isElevatedUser(activeUserEntity.get()));
+
+		String lookupInput = request.getParameter("lookupInput");
+		modelAndView.addObject("Search", lookupInput);
 
 		try {
 			modelAndView.addObject(

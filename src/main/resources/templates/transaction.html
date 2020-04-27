@@ -37,10 +37,9 @@
 <<<<<<< HEAD
 		</ul>-->
 		<div id = "productLookup">
-			<form name="productLookupForm" onsubmit="return validateForm()" method="GET">
+			<form name="productLookupForm" method="POST" action="lookupServlet">
 			Lookup Code: <input type="text" name="lookupInput" id="lookupInput">
-			<input type="submit" value="Submit" id="submitButton">
-			<p id="formError"></p>
+			<input type="submit" value="lookupSearch">
 			</form>
 		</div>
 

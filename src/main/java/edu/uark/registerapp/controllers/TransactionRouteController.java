@@ -59,6 +59,56 @@ public class TransactionRouteController extends BaseRouteController {
 		return modelAndView;
 	}
 
+	@RequestMapping(value = "/transaction", method = RequestMethod.GET)
+	public ModelAndView Search(@RequestParam final Map<String, String> queryParameters, final HttpServletRequest request)
+	{
+		final Optional<ActiveUserEntity> activeUserEntity = this.getCurrentUser(request);
+
+		ModelAndView modelAndView =
+			this.setErrorMessageFromQueryString(
+				new ModelAndView(ViewNames.TRANSACTION.getViewName()),
+				queryParameters);
+
+//---------------------------------------------------------------------------------------
+//Try to get the GET input for search
+//---------------------------------------------------------------------------------------
+
+		String lookupInput = "Before Get"; 
+		lookupInput = request.getParameter("lookupInput");
+		//lookupInput = request.getAttribute("lookupInput");
+		modelAndView.addObject("Search", lookupInput);
+
+//---------------------------------------------------------------------------------------
+//Pull up Products that match that GET
+//---------------------------------------------------------------------------------------
+
+		if(ViewModelNames.PRODUCTS.getValue().contains(lookupInput))
+		{
+			modelAndView.addObject(
+			ViewModelNames.IS_ELEVATED_USER.getValue(),
+			this.isElevatedUser(activeUserEntity.get()));
+
+			try {
+				modelAndView.addObject(
+					ViewModelNames.PRODUCTS.getValue(),
+					this.productsQuery.execute());
+			} catch (final Exception e) {
+				modelAndView.addObject(
+					ViewModelNames.ERROR_MESSAGE.getValue(),
+					e.getMessage());
+				modelAndView.addObject(
+					ViewModelNames.PRODUCTS.getValue(),
+					(new Product[0]));
+			}
+		}
+		else
+		{
+			modelAndView.addObject(ViewModelNames.PRODUCTS.getValue(), (new Product[0]));
+		}
+
+		return modelAndView;
+	}
+
 	// Properties
 	@Autowired
 	private ProductsQuery productsQuery;	

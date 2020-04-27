@@ -28,7 +28,7 @@ import java.io.PrintWriter;
 @Controller
 @RequestMapping(value = "/transaction")
 public class TransactionRouteController extends BaseRouteController {
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView showTransaction(@RequestParam final Map<String, String> queryParameters,
 	final HttpServletRequest request)
 	{

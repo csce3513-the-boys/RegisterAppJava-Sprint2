@@ -59,7 +59,7 @@ public class TransactionRouteController extends BaseRouteController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/transaction", method = RequestMethod.GET)
+	@RequestMapping(value = "/transactionSearch", method = RequestMethod.GET)
 	public ModelAndView Search(@RequestParam final Map<String, String> queryParameters, final HttpServletRequest request)
 	{
 		final Optional<ActiveUserEntity> activeUserEntity = this.getCurrentUser(request);

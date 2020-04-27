@@ -21,7 +21,7 @@ import edu.uark.registerapp.models.enums.EmployeeClassification;
 
 @Controller
 @RequestMapping(value = "/cashierSales")
-public class TransactionRouteController extends BaseRouteController {
+public class CashierSalesController extends BaseRouteController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView showTransaction(final HttpServletRequest request)
 	{

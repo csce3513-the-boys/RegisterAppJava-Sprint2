@@ -46,7 +46,9 @@ public class TransactionRouteController extends BaseRouteController {
 			ViewModelNames.IS_ELEVATED_USER.getValue(),
 			this.isElevatedUser(activeUserEntity.get()));
 
-		String lookupInput = request.getParameter("lookupInput");
+		String lookupInput = "Before Get";
+		lookupInput = request.getParameter("lookupInput");
+		//lookupInput = request.getHeaders("lookupInput");
 		modelAndView.addObject("Search", lookupInput);
 
 		try {

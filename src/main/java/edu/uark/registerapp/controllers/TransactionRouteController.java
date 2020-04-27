@@ -69,6 +69,10 @@ public class TransactionRouteController extends BaseRouteController {
 					(new Product[0]));
 			}
 		}
+		else
+		{
+			modelAndView.addObject(ViewModelNames.PRODUCTS.getValue(), (new Product[0]));
+		}
 		
 		return modelAndView;
 	}

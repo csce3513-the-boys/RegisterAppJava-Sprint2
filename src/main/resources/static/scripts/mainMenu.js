@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	getStartTransactionActionElement().addEventListener(
 		"click",
 		() => { window.location.assign("/transaction"); });
-		
+
 	getViewProductsActionElement().addEventListener(
 		"click",
 		() => { window.location.assign("/productListing"); });
@@ -13,11 +13,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 	getProductSalesReportActionElement().addEventListener(
 		"click",
-		() => { displayError("Functionality has not yet been implemented."); });
+		() => { window.location.assign("/productSales"); });
 
 	getCashierSalesReportActionElement().addEventListener(
 		"click",
-		() => { displayError("Functionality has not yet been implemented."); });
+		() => { window.location.assign("/cashierSales"); });
 });
 
 // Getters and setters

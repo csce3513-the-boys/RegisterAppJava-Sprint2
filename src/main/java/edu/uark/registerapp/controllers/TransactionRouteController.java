@@ -52,9 +52,10 @@ public class TransactionRouteController extends BaseRouteController {
 		String lookupInput = "Before Get";
 		System.out.println("Search: " + lookupInput);
 		lookupInput = request.getParameter("lookupInput");
-		//lookupInput = request.getHeaders("lookupInput");
+		//lookupInput = request.getAttribute("lookupInput");
 		modelAndView.addObject("Search", lookupInput);
 		System.out.println("Search: " + lookupInput);
+
 		try {
 			modelAndView.addObject(
 				ViewModelNames.PRODUCTS.getValue(),

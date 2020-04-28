@@ -1,9 +1,12 @@
 package edu.uark.registerapp.controllers;
 
+import java.io.IOException;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +27,7 @@ import edu.uark.registerapp.models.enums.EmployeeClassification;
 public class TransactionRouteController extends BaseRouteController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView showTransaction(@RequestParam final Map<String, String> queryParameters,
-	final HttpServletRequest request)
+	final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException
 	{
 			//ModelAndView modelAndView = new ModelAndView(ViewNames.TRANSACTION.getViewName());
 
@@ -43,6 +46,10 @@ public class TransactionRouteController extends BaseRouteController {
 			ViewModelNames.IS_ELEVATED_USER.getValue(),
 			this.isElevatedUser(activeUserEntity.get()));
 
+		String lookupInput = "Before Get";
+		lookupInput = doGetString(request, response);
+		System.out.println(lookupInput);
+
 		try {
 			modelAndView.addObject(
 				ViewModelNames.PRODUCTS.getValue(),
@@ -58,6 +65,14 @@ public class TransactionRouteController extends BaseRouteController {
 		
 		return modelAndView;
 	}
+
+	protected String doGetString(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
+		//doGet(request, response);
+		String lookupInput = request.getParameter("lookupInput"); 
+		return lookupInput;
+    }
+
 
 	// Properties
 	@Autowired

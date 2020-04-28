@@ -47,7 +47,7 @@ public class TransactionRouteController extends BaseRouteController {
 			this.isElevatedUser(activeUserEntity.get()));
 
 		String lookupInput = "Before Get";
-		lookupInput = doGetString(request, response);
+		lookupInput = doGet(request, response);
 		System.out.println(lookupInput);
 
 		try {
@@ -66,7 +66,7 @@ public class TransactionRouteController extends BaseRouteController {
 		return modelAndView;
 	}
 
-	protected String doGetString(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	protected String doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		//doGet(request, response);
 		String lookupInput = request.getParameter("lookupInput"); 

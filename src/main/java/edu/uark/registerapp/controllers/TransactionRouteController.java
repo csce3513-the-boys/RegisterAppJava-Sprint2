@@ -1,5 +1,6 @@
 package edu.uark.registerapp.controllers;
 
+import java.sql.*;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Optional;
@@ -37,6 +38,13 @@ public class TransactionRouteController extends BaseRouteController {
 					return buildInvalidSessionResponse();
 			}
 
+			String lookupInput = "Before Get";
+			lookupInput = doGet(request, response);
+			System.out.println("Lookup input: " + lookupInput);
+	
+			StringBuilder builder = new StringBuilder();
+			builder.append("<br>lookup Input: " + lookupInput + "<br>");
+
 			ModelAndView modelAndView =
 			this.setErrorMessageFromQueryString(
 				new ModelAndView(ViewNames.TRANSACTION.getViewName()),
@@ -45,10 +53,6 @@ public class TransactionRouteController extends BaseRouteController {
 		modelAndView.addObject(
 			ViewModelNames.IS_ELEVATED_USER.getValue(),
 			this.isElevatedUser(activeUserEntity.get()));
-
-		String lookupInput = "Before Get";
-		lookupInput = doGet(request, response);
-		System.out.println(lookupInput);
 
 		try {
 			modelAndView.addObject(

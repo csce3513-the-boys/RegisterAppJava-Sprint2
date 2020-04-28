@@ -84,6 +84,6 @@ function findClickedListItemElement(clickedTarget) {
 function productClick(event) {
 	let listItem = findClickedListItemElement(event.target);
 
-	alert("CLICK");
+	var amount = prompt("Please enter the amount", "0");
 }
 

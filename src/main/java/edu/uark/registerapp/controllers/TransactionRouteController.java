@@ -38,13 +38,6 @@ public class TransactionRouteController extends BaseRouteController {
 					return buildInvalidSessionResponse();
 			}
 
-			String lookupInput = "Before Get";
-			lookupInput = doGet(request, response);
-			System.out.println("Lookup input: " + lookupInput);
-	
-			StringBuilder builder = new StringBuilder();
-			builder.append("<br>lookup Input: " + lookupInput + "<br>");
-
 			ModelAndView modelAndView =
 			this.setErrorMessageFromQueryString(
 				new ModelAndView(ViewNames.TRANSACTION.getViewName()),
@@ -66,7 +59,14 @@ public class TransactionRouteController extends BaseRouteController {
 				ViewModelNames.PRODUCTS.getValue(),
 				(new Product[0]));
 		}
-		
+	
+		String lookupInput = "Before Get";
+		lookupInput = doGet(request, response);
+		System.out.println("Lookup input: " + lookupInput);
+
+		StringBuilder builder = new StringBuilder();
+		builder.append("<br>lookup Input: " + lookupInput + "<br>");
+
 		return modelAndView;
 	}
 

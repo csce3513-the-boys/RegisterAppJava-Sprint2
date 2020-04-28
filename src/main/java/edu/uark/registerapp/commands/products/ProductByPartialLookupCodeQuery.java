@@ -1,4 +1,4 @@
-package edu.uark.registerapp.commands.products;
+/*package edu.uark.registerapp.commands.products;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -51,3 +51,4 @@ public class ProductByPartialLookupCodeQuery implements ResultCommandInterface<P
 	@Autowired
 	private ProductRepository productRepository;
 }
+*/
